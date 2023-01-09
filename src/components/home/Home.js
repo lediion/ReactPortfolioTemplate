@@ -5,9 +5,8 @@ import classNames from 'classnames';
 import EmojiBullet from "./EmojiBullet";
 import SocialIcon from "./SocialIcon";
 import {Box} from "@mui/material";
-import {info} from "../../info/Info";
 
-export default function Home() {
+export default function Home(info) {
 
    return (
       <Box component={'main'} display={'flex'} flexDirection={{xs: 'column', md: 'row'}} alignItems={'center'}

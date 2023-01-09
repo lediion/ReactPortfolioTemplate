@@ -2,10 +2,8 @@ import React from 'react';
 import Style from './About.module.scss';
 import Terminal from "./Terminal";
 import {Box} from "@mui/material";
-import {info} from "../../info/Info";
 
-
-export default function About() {
+export default function About(info) {
     const firstName = info.firstName.toLowerCase()
 
     function aboutMeText() {

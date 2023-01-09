@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Style from './BaseLayout.module.scss'
 import Navbar from "./Navbar";
 import Home from "./home/Home";
@@ -8,6 +8,18 @@ import {Route, Routes} from "react-router-dom";
 import {Box, Grid} from "@mui/material";
 
 export default function BaseLayout() {
+    const [info, setInfo] = useState({});
+
+    useEffect(() => {
+        fetch(
+            "https://appservice23455.azurewebsites.net/portofolio?firstname=ledion1"
+        )
+            .then((res) => res.json())
+            .then((result) => {
+                setInfo(result);
+            });
+    }, []);
+
    let [darkMode, setDarkMode] = useState(false);
 
    function handleClick() {
@@ -23,9 +35,9 @@ export default function BaseLayout() {
             </Grid>
             <Grid item flexGrow={1}>
                <Routes>
-                  <Route exact path={'/'} element={<Home/>}/>
-                  <Route exact path={'/about'} element={<About/>}/>
-                  <Route exact path={'/portfolio'} element={<Portfolio/>}/>
+                       <Route exact path={'/'} element={<Home {...info} />}/>
+                       <Route exact path={'/about'} element={<About {...info} />}/>
+                       <Route exact path={'/portfolio'} element={<Portfolio {...info} />}/>
                </Routes>
             </Grid>
             <Grid item>
