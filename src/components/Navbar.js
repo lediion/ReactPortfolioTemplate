@@ -39,7 +39,7 @@ export default function Navbar({darkMode, handleClick}) {
                  textTransform={'lowercase'} fontSize={'1rem'}>
                 {links.map(link => (
                     <Link to={link.to} onClick={() => setActive(link.active)}>
-                        <Box component={'li'} className={(link.active === active && !link.type) && Style.active} sx={{ borderImageSource: '-webkit-linear-gradient(135deg, ${colors}' }}>
+                        <Box component={'li'} className={(link.active === active && !link.type) && Style.active} sx={{ borderImageSource: `-webkit-linear-gradient(135deg, ${colors}` }}>
                             {!link.type && <p style={{paddingBottom: '0.5rem'}}>{link.name}</p>}
                             {link.type && <h1>{link.name}</h1>}
                         </Box>
